@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cybersecurity Skill Roadmap</title>
+<style>
+:root{--bg:#eceff2;--card:#fbfcfd;--tx:#14202e;--mut:#5a6675;--ac:#2457d6;--bd:#d5dbe2;--ok:#1a8f4c;--ms:#fff4d6;--msb:#e3b341;--er:#b42318;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1520;--card:#162030;--tx:#e6ebf2;--mut:#9aa7b8;--ac:#7aa2ff;--bd:#27344a;--ok:#4cc27f;--ms:#2a2411;--msb:#a8841f;--er:#ff8a7a}}
+:root[data-theme="dark"]{--bg:#0e1520;--card:#162030;--tx:#e6ebf2;--mut:#9aa7b8;--ac:#7aa2ff;--bd:#27344a;--ok:#4cc27f;--ms:#2a2411;--msb:#a8841f;--er:#ff8a7a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+main{max-width:760px;margin:0 auto;padding:20px 16px 64px}
+h1{font:700 1.9rem/1.2 Georgia,"Times New Roman",serif;margin:8px 0 6px}
+.sub{color:var(--mut);margin:0 0 12px;max-width:60ch}
+.top{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding:10px 0 12px;z-index:5;border-bottom:1px solid var(--bd)}
+.bar{height:10px;background:var(--bd);border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--ok);transition:width .3s}
+.tot{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:6px;gap:8px}
+#st{color:var(--mut);text-align:right}
+.ladder{display:flex;gap:4px;margin-top:10px}
+.ladder a{flex:1;height:26px;border-radius:4px;background:var(--bd);position:relative;overflow:hidden;text-decoration:none;color:var(--tx);font-size:.72rem;display:flex;align-items:center;justify-content:center}
+.ladder a i{position:absolute;left:0;top:0;bottom:0;background:var(--ac);opacity:.35;width:0}
+.ladder a b{position:relative;font-weight:600}
+.rules{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:12px 14px;margin:14px 0;font-size:.92rem}
+details{background:var(--card);border:1px solid var(--bd);border-radius:10px;margin:14px 0}
+summary{cursor:pointer;padding:14px 16px;list-style:none;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+summary::-webkit-details-marker{display:none}
+summary h2{font:700 1.15rem/1.3 Georgia,serif;margin:0;flex:1 1 60%}
+.wk{color:var(--mut);font-size:.85rem}
+.cnt{font-size:.85rem;font-weight:600;color:var(--ac)}
+.body{padding:0 16px 16px}
+.lock .body{opacity:.55}
+.goal{color:var(--mut);margin:0 0 10px;font-size:.93rem}
+h3{font-size:.95rem;margin:16px 0 4px}
+label{display:flex;gap:10px;padding:6px 0;align-items:flex-start;cursor:pointer}
+label.off{cursor:not-allowed}
+label span{flex:1}
+input[type=checkbox]{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--ok)}
+label.done span{color:var(--mut);text-decoration:line-through}
+.dt{font-size:.78rem;color:var(--ok);font-style:normal;white-space:nowrap;margin-top:3px}
+.ms{background:var(--ms);border:1px solid var(--msb);border-radius:8px;padding:8px 12px;margin-top:12px}
+.ms h3{margin:4px 0}
+.hint{font-size:.85rem;color:var(--mut);margin:2px 0 4px}
+input[type=text],input[type=password]{width:100%;padding:8px;margin:4px 0 10px;border:1px solid var(--bd);border-radius:6px;background:var(--bg);color:var(--tx);font:inherit}
+button{font:inherit;padding:8px 14px;border-radius:8px;border:1px solid var(--bd);background:var(--card);color:var(--tx);cursor:pointer;margin:0 8px 8px 0}
+ol{padding-left:20px;margin:6px 0}
+code{background:var(--bg);padding:1px 5px;border-radius:4px;font-size:.88em}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+</style></head><body><main>
+<h1>Cybersecurity Skill Roadmap</h1>
+<p class="sub">Beginner to job ready on hands on skill. About 10 hours a week for 26 weeks, then a mastery loop. Phases unlock in order and every tick is dated.</p>
+<div class="top">
+<div class="tot"><b id="pct">0%</b><span id="tc"></span><span id="st">Local only</span></div>
+<div class="bar"><i id="fill"></i></div>
+<div class="ladder" id="ladder"></div>
+</div>
+<div class="rules"><b>How it works:</b> tasks in a phase can be ticked in any order. Milestones unlock when every task in the phase is done. The next phase unlocks when the whole phase is done. You can only untick items in your latest active phase.<br><b>Ground rule:</b> only test systems you own or have written permission to test.</div>
+<div id="root"></div>
+<div class="rules"><b>Milestone log</b><div id="log" class="hint">No milestones yet.</div></div>
+<details id="set"><summary><h2>Sync settings and setup guide</h2></summary><div class="body">
+<p class="hint">Progress is saved to <code>progress.json</code> in your GitHub repo. Without a token the page is read only for synced data and saves on this device only.</p>
+<label for="o" style="display:block;cursor:default">GitHub username</label><input type="text" id="o" autocomplete="off">
+<label for="r" style="display:block;cursor:default">Repository name</label><input type="text" id="r" autocomplete="off">
+<label for="k" style="display:block;cursor:default">Access token (stored in this browser only)</label><input type="password" id="k" autocomplete="off">
+<button id="sv">Save and sync</button><button id="dc">Disconnect this device</button>
+<h3>One time setup</h3>
+<ol>
+<li>On GitHub create a new <b>public</b> repository, for example <code>cyber-roadmap</code>.</li>
+<li>Upload this file to it as <code>index.html</code>.</li>
+<li>Repo Settings, Pages, deploy from branch <code>main</code>, folder <code>/ (root)</code>. Your site appears at <code>https://USERNAME.github.io/REPO/</code>.</li>
+<li>GitHub profile, Settings, Developer settings, Personal access tokens, Fine grained tokens. Select <b>only this repo</b> and set Contents to <b>Read and write</b>.</li>
+<li>Open your site, paste the token here and press Save and sync. Your first tick creates <code>progress.json</code>.</li>
+<li>On any other PC open the same URL and paste the token again. Press Disconnect on shared computers.</li>
+</ol>
+<p class="hint">Never put the token inside the code or commit it. If it leaks, delete it on GitHub and make a new one.</p>
+</div></details>
+<p><button id="reset">Reset all progress</button></p>
+</main>
+<script>
+var P=[
+{t:"Phase 0: Setup",w:"Week 1",g:"Build your workspace and habits before anything else.",s:[
+["Set up",["Create a GitHub account and a repo for notes and writeups","Start a blog (GitHub Pages) or an Obsidian notebook; log every lab you do","Install VirtualBox, then a Kali Linux VM and an Ubuntu Server VM","Create free accounts on TryHackMe, Hack The Box and PortSwigger Academy","Read the ground rules above and commit to them","Block 10 hours a week in your calendar"]]],
+m:["Lab VMs boot and snapshot","First note published"]},
+{t:"Phase 1: Foundations",w:"Weeks 2 to 7",g:"Linux, networking and Python. Everything else sits on these.",s:[
+["Learn",["TryHackMe Pre Security path","OverTheWire Bandit up to level 20","The Cyber Mentor (YouTube): free Linux and networking sections","Networking: OSI, TCP/IP, DNS, HTTP, ARP, DHCP, NAT, subnetting","Python: files, loops, functions, sockets, requests library","Wireshark: capture, filter, follow a stream"]],
+["Projects",["Project 1, Packet Detective: capture your own traffic and explain a DNS lookup and an HTTP login in a writeup","Project 2: Python multithreaded port scanner with banner grabbing","Project 3: Bash or Python script that parses auth logs and lists failed logins by IP"]]],
+m:["Bandit level 20 reached","Subnet a /24 by hand without a calculator","3 writeups published"]},
+{t:"Phase 2: Web and Offensive Core",w:"Weeks 8 to 13",g:"Learn how things break. Web security is the best entry into the field and fits your developer side.",s:[
+["Learn",["TryHackMe Jr Penetration Tester path","TCM Practical Ethical Hacking (YouTube): Nmap, enumeration, Burp Suite","PortSwigger Academy: SQL injection, XSS, authentication, access control, CSRF, SSRF","OWASP Top 10 and OWASP Juice Shop","Linux privilege escalation basics and Metasploit basics","Watch IppSec walkthroughs only after you have tried the box yourself"]],
+["Projects",["Project 4: Full Juice Shop pentest with a professional style report","Project 5, KIOKO Journal audit: test your own app for authentication, sessions, API authorisation, input validation, rate limits, secrets and data exposure. Fix each issue and document before and after","Project 6: Python script that checks a site for missing security headers and weak cookie flags"]]],
+m:["30 PortSwigger labs solved","20 TryHackMe rooms done","Pentest report written","KIOKO audit published (sanitised)"]},
+{t:"Phase 3: Defence and Home Lab",w:"Weeks 14 to 18",g:"See attacks from the defender side. This is where depth comes from.",s:[
+["Learn",["Windows basics, event logs and PowerShell","Active Directory fundamentals (TryHackMe AD rooms)","SIEM concepts, MITRE ATT&CK and Sigma rules","13Cubed (YouTube): forensics and incident response","10 beginner labs on CyberDefenders or LetsDefend"]],
+["Projects",["Project 7: Isolated home lab with Kali, Windows and a vulnerable VM","Project 8: Deploy Wazuh or Security Onion, attack your lab, write 5 detection rules","Project 9: Honeypot on a cheap VPS (Cowrie or T-Pot). Analyse attacks with Python and pandas and build a dashboard. Your statistics background is an edge here"]]],
+m:["Your own attack detected in the SIEM","10 blue team labs done","Honeypot report with charts published"]},
+{t:"Phase 4: Choose Your Direction",w:"Weeks 19 to 23",g:"Pick one track and go deep. Suggested: Track C, because you own a real product and have dev and data skills. It leads naturally into A or B. Tick only the track you choose, then tick the other items as done or skipped once you finish.",s:[
+["Track A: Offensive",["HTB Academy modules on web and Active Directory","10 easy then 5 medium Hack The Box machines","Kerberoasting, lateral movement, privilege escalation on Windows","Project: Compromise your own AD lab end to end and write the report"]],
+["Track B: Defensive",["Build a log pipeline (endpoint logs to SIEM to alerts)","20 Sigma rules mapped to MITRE ATT&CK","DFIR labs: memory, disk and network forensics","Project: Threat hunt report on your honeypot or lab data"]],
+["Track C: Application Security (recommended)",["Secure code review practice on open source apps","Threat modelling (STRIDE) for KIOKO Journal","Add Semgrep, dependency scanning and OWASP ZAP to a CI pipeline","Project: DevSecOps pipeline and threat model for KIOKO Journal"]]],
+m:["One track chosen and 5 labs or builds completed in it","Track project published"]},
+{t:"Phase 5: Proof and Job Hunt",w:"Weeks 24 to 26",g:"Turn skill into visible evidence employers can check.",s:[
+["Build proof",["Capstone: one end to end project with a public repo and report","Portfolio site with 10 or more writeups and 5 or more projects","Play 3 CTFs from CTFtime and publish writeups","Report a first finding to a bug bounty or vulnerability disclosure programme","Contribute to an open source security tool (a rule, docs, or small fix)"]],
+["Go to market",["Polish GitHub and LinkedIn around your projects","Join local and online communities (OWASP chapters, Nairobi security meetups, Discords)","Apply for SOC analyst, junior pentester, AppSec or remote junior roles","Offer small security reviews to local startups as freelance work","Practise explaining your projects and walking through an incident or pentest out loud"]]],
+m:["Portfolio live","5 applications or pitches sent"]},
+{t:"Phase 6: Mastery Loop",w:"Month 7 onwards",g:"Skill compounds. Keep this loop running for years.",s:[
+["Keep going",["Hack The Box medium and hard machines or Pro Labs","Cloud security: AWS free tier and CloudGoat","Malware analysis basics in a safe VM","Read one public writeup or incident report every day","Ship one new project every month","Teach what you learn through a blog or videos"]]],
+m:["12 months: 100 hours of lab time beyond this plan","A published tool, talk or research writeup"]}
+];
+function ld(k,d){try{return JSON.parse(localStorage.getItem(k)||"null")||d}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var $=function(i){return document.getElementById(i)},S=ld("cr-state",{}),C=ld("cr-cfg",{}),SHA=null,Q=Promise.resolve(),busy=false;
+if(!C.owner&&/github\.io$/.test(location.hostname)){C.owner=location.hostname.split(".")[0];C.repo=location.pathname.split("/")[1]||""}
+function ids(i){var a=[],p=P[i];p.s.forEach(function(s,j){s[1].forEach(function(t,k){a.push(i+"-"+j+"-"+k)})});return a}
+function mids(i){return P[i].m.map(function(t,k){return i+"-m-"+k})}
+function all(a){return a.every(function(x){return S[x]})}
+function any(a){return a.some(function(x){return S[x]})}
+function pDone(i){return all(ids(i).concat(mids(i)))}
+function unl(i){return i==0||pDone(i-1)}
+function later(i){for(var j=i+1;j<P.length;j++)if(any(ids(j).concat(mids(j))))return true;return false}
+function canTick(id,i,m){return unl(i)&&(!m||all(ids(i)))}
+function canUn(id,i,m){return !later(i)&&(m||!any(mids(i)))}
+function fmt(d){var x=new Date(d+"T00:00:00");return isNaN(x)?d:x.toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"})}
+function today(){return new Date().toLocaleDateString("en-CA")}
+function box(id,txt,i,m){var on=!!S[id],en=on?canUn(id,i,m):canTick(id,i,m);
+ return '<label class="'+(on?"done ":"")+(en?"":"off")+'"><input type="checkbox" data-id="'+id+'" data-p="'+i+'" data-m="'+(m?1:0)+'"'+(on?" checked":"")+(en?"":" disabled")+'><span>'+txt+'</span>'+(on?'<em class="dt">'+fmt(S[id])+'</em>':"")+'</label>'}
+function render(){
+ var op={};document.querySelectorAll("#root details").forEach(function(d){op[d.id]=d.open});
+ var cur=-1;for(var q=0;q<P.length;q++)if(!pDone(q)){cur=q;break}
+ var h="";
+ P.forEach(function(p,i){var u=unl(i),o=("p"+i in op)?op["p"+i]:i===cur;
+  h+='<details id="p'+i+'" class="'+(u?"":"lock")+'"'+(o?" open":"")+'><summary><h2>'+p.t+'</h2><span class="wk">'+(u?p.w:"Locked until Phase "+(i-1)+" is complete")+'</span><span class="cnt" id="c'+i+'"></span></summary><div class="body"><p class="goal">'+p.g+'</p>';
+  p.s.forEach(function(s,j){h+="<h3>"+s[0]+"</h3>";s[1].forEach(function(t,k){h+=box(i+"-"+j+"-"+k,t,i,false)})});
+  h+='<div class="ms"><h3>Milestones</h3>'+(u&&!all(ids(i))?'<p class="hint">Finish every task above to unlock milestones.</p>':"");
+  p.m.forEach(function(t,k){h+=box(i+"-m-"+k,t,i,true)});h+="</div></div></details>"});
+ $("root").innerHTML=h;
+ if(!$("ladder").innerHTML)$("ladder").innerHTML=P.map(function(p,i){return '<a href="#p'+i+'" title="'+p.t+'"><i id="l'+i+'"></i><b>'+i+"</b></a>"}).join("");
+ var T=0,D=0,L=[];
+ P.forEach(function(p,i){var a=ids(i).concat(mids(i)),d=a.filter(function(x){return S[x]}).length;T+=a.length;D+=d;
+  $("c"+i).textContent=d+"/"+a.length;$("l"+i).style.width=(100*d/a.length)+"%";
+  p.m.forEach(function(t,k){var id=i+"-m-"+k;if(S[id])L.push([S[id],p.t.split(":")[0]+": "+t])})});
+ var pc=Math.round(100*D/T);$("pct").textContent=pc+"%";$("tc").textContent=D+" of "+T;$("fill").style.width=pc+"%";
+ L.sort(function(a,b){return a[0]<b[0]?-1:1});
+ $("log").innerHTML=L.length?L.map(function(x){return fmt(x[0])+": "+x[1]}).join("<br>"):"No milestones yet."}
+function st(m){$("st").textContent=m}
+function api(method,body){return fetch("https://api.github.com/repos/"+C.owner+"/"+C.repo+"/contents/progress.json",{method:method,cache:"no-store",headers:Object.assign({Accept:"application/vnd.github+json"},C.token?{Authorization:"Bearer "+C.token}:{}),body:body?JSON.stringify(body):undefined})}
+async function pull(){
+ if(!C.owner||!C.repo){st("Local only");return}
+ try{var r=await api("GET");
+  if(r.status==404){SHA=null;st(C.token?"Connected, file not created yet":"Repo or file not found");return}
+  if(!r.ok){st("Sync error "+r.status);return}
+  var j=await r.json();SHA=j.sha;S=JSON.parse(decodeURIComponent(escape(atob(j.content.replace(/\n/g,"")))));sv("cr-state",S);render();st("Synced "+new Date().toLocaleTimeString())
+ }catch(e){st("Offline, showing saved copy")}}
+async function push(retry){
+ if(!C.token){st("Saved on this device only (no token)");return}
+ busy=true;st("Saving...");
+ try{var b={message:"Update progress "+today(),content:btoa(unescape(encodeURIComponent(JSON.stringify(S,null,1))))};if(SHA)b.sha=SHA;
+  var r=await api("PUT",b);
+  if((r.status==409||r.status==422)&&!retry){var g=await api("GET");if(g.ok){SHA=(await g.json()).sha}else{SHA=null}busy=false;return push(true)}
+  if(!r.ok){st(r.status==401||r.status==403||r.status==404?"Save failed: check token and repo access":"Save failed ("+r.status+")");busy=false;return}
+  SHA=(await r.json()).content.sha;st("Synced "+new Date().toLocaleTimeString())
+ }catch(e){st("Offline: saved on this device, will retry on next tick")}
+ busy=false}
+$("root").addEventListener("change",function(e){var c=e.target,id=c.dataset.id;if(!id)return;
+ var i=+c.dataset.p,m=c.dataset.m=="1";
+ if(c.checked){if(!canTick(id,i,m)){render();return}S[id]=today()}else{if(!canUn(id,i,m)){render();return}delete S[id]}
+ sv("cr-state",S);render();Q=Q.then(function(){return push()})});
+$("sv").onclick=function(){C={owner:$("o").value.trim(),repo:$("r").value.trim(),token:$("k").value.trim()};sv("cr-cfg",C);pull()};
+$("dc").onclick=function(){C.token="";sv("cr-cfg",C);$("k").value="";st("Disconnected on this device")};
+$("reset").onclick=function(){if(confirm("Clear all progress?")){S={};sv("cr-state",S);render();if(C.token)Q=Q.then(function(){return push()})}};
+$("o").value=C.owner||"";$("r").value=C.repo||"";$("k").value=C.token||"";
+document.addEventListener("visibilitychange",function(){if(!document.hidden&&!busy)pull()});
+setInterval(function(){if(!document.hidden&&C.token&&!busy)pull()},60000);
+render();pull();
+</script></body></html>
