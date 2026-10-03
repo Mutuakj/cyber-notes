@@ -1,0 +1,11 @@
+.env
+*.key
+*.pem
+*.ovpn
+*.ova
+*.iso
+*.vdi
+*.vmdk
+*.pcap
+*.pcapng
+.DS_Store
