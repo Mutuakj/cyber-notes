@@ -4,7 +4,7 @@ I am Joseph Kioko, a Kenya based trader and builder (KIOKO Journal) teaching mys
 
 **Plan:** about 10 hours a week for 26 weeks, then a mastery loop. Beginner to job ready through labs, projects and public writeups.
 
-**Live roadmap tracker:** `https://YOUR_USERNAME.github.io/YOUR_REPO/roadmap/`
+**Live roadmap tracker:** `https://Mutuakj.github.io/cyber-notes/roadmap/`
 
 ## Progress
 
